@@ -6,7 +6,7 @@ const Movies = ({ token }) => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
 
-  const fetchMovies = async () => {
+  const fetchMovies = useCallback(async () => {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/movies?page=${page}&query=${query}`, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -14,7 +14,7 @@ const Movies = ({ token }) => {
     });
     const data = await res.json();
     setMovies(data.results);
-  };
+  }, []);
 
   useEffect(() => {
     fetchMovies();
