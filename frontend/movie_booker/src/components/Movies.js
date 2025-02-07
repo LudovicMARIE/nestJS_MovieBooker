@@ -14,7 +14,7 @@ const Movies = ({ token }) => {
     });
     const data = await res.json();
     setMovies(data.results);
-  }, []);
+  }, [page, query, token]);
 
   useEffect(() => {
     fetchMovies();
