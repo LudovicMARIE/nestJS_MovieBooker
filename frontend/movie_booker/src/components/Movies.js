@@ -18,7 +18,7 @@ const Movies = ({ token }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, [page, query]);
+  }, [page, query, fetchMovies]);
 
   return (
     <div>
